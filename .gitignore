@@ -1,4 +1,5 @@
-build/*
+*/build*
 install/*
 CMakeLists.txt.user
-Testing/*
+*/Testing/*
+core
