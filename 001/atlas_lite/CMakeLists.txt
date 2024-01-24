@@ -13,6 +13,12 @@ add_library( atlas_lite
 )
 if (ENABLE_CXX_LINKER)
   set_target_properties( atlas_lite PROPERTIES LINKER_LANGUAGE CXX )
+
+  if (ENABLE_PROPOSED_LINK_OPTION)
+    message("" )
+    message("ENABLE_PROPOSED_LINK_OPTION=ON --> setting proposed extra linker flag [-fuse-ld=bfd] to workaround Cray compiler bug")
+    target_link_options( atlas_lite PRIVATE "-fuse-ld=bfd")
+  endif()
 else()
   set_target_properties( atlas_lite PROPERTIES LINKER_LANGUAGE Fortran )
 endif()
